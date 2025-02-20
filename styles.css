@@ -9,6 +9,7 @@ body {
     background: #1a1a1a;
     color: #fff;
     transition: all 0.3s ease;
+    font-size: 16px; /* Base size for scalability */
 }
 
 body.light {
@@ -19,26 +20,26 @@ body.light {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 10px; /* Reduced padding for mobile */
 }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 h1 {
-    font-size: 2.5em;
+    font-size: 1.8em; /* Smaller on mobile */
     text-shadow: 0 0 10px #00ffcc;
 }
 
 .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 34px;
+    width: 50px; /* Slightly smaller */
+    height: 26px;
 }
 
 .switch input {
@@ -56,16 +57,16 @@ h1 {
     bottom: 0;
     background: #ccc;
     transition: 0.4s;
-    border-radius: 34px;
+    border-radius: 26px;
 }
 
 .slider:before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
     background: white;
     transition: 0.4s;
     border-radius: 50%;
@@ -76,33 +77,34 @@ input:checked + .slider {
 }
 
 input:checked + .slider:before {
-    transform: translateX(26px);
+    transform: translateX(24px);
 }
 
 .dashboard {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: 1fr; /* Single column on small screens */
+    gap: 15px;
 }
 
 .widget {
     background: #2a2a2a;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 255, 204, 0.5);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 12px rgba(0, 255, 204, 0.5);
 }
 
 body.light .widget {
     background: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
 
 .tasks input, .tasks select, .tasks button {
-    margin: 10px 0;
-    padding: 10px;
+    margin: 5px 0;
+    padding: 8px;
     width: 100%;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
+    font-size: 0.9em; /* Smaller text */
 }
 
 .tasks button {
@@ -118,10 +120,11 @@ body.light .widget {
 .tasks li {
     display: flex;
     justify-content: space-between;
-    padding: 10px;
+    padding: 8px;
     background: #3a3a3a;
     margin: 5px 0;
-    border-radius: 5px;
+    border-radius: 4px;
+    font-size: 0.85em; /* Smaller on mobile */
 }
 
 body.light .tasks li {
@@ -129,17 +132,48 @@ body.light .tasks li {
 }
 
 .share button {
-    padding: 10px;
+    padding: 8px;
     width: 100%;
     background: #00ffcc;
     color: #1a1a1a;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
+    font-size: 0.9em;
 }
 
-@media (max-width: 600px) {
+footer {
+    text-align: center;
+    padding: 10px;
+    font-size: 0.8em;
+    color: #aaa;
+    margin-top: 20px;
+}
+
+body.light footer {
+    color: #666;
+}
+
+@media (min-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+    h1 {
+        font-size: 2.5em;
+    }
     .dashboard {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+    .tasks input, .tasks select, .tasks button {
+        padding: 10px;
+        font-size: 1em;
+    }
+    .tasks li {
+        padding: 10px;
+        font-size: 1em;
+    }
+    .share button {
+        padding: 10px;
+        font-size: 1em;
     }
 }

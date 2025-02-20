@@ -3,6 +3,7 @@ let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 let points = parseInt(localStorage.getItem('points')) || 0;
 let streak = parseInt(localStorage.getItem('streak')) || 0;
 let lastStreakDate = localStorage.getItem('lastStreakDate') || null;
+const isPremium = false; // Hardcoded for now—premium later
 
 // DOM elements
 const taskInput = document.getElementById('taskInput');
@@ -45,6 +46,10 @@ function addTask() {
     const taskDate = dueDate.value;
     const category = categoryFilter.value;
     if (taskText) {
+        if (!isPremium && tasks.length >= 10) {
+            alert('Free version limited to 10 tasks. Go Premium for unlimited!');
+            return;
+        }
         const task = { text: taskText, date: taskDate, category: category, completed: false };
         tasks.push(task);
         saveTasks();
@@ -144,3 +149,6 @@ function shareProgress() {
 renderTasks();
 pointsDisplay.textContent = points;
 streakDisplay.textContent = streak;
+
+// Add current date to footer
+document.getElementById('currentDate').textContent = new Date().toLocaleDateString();
