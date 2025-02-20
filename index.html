@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMaster Apex</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1a1a1a">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TaskMaster Apex</h1>
+            <label class="switch">
+                <input type="checkbox" id="themeToggle">
+                <span class="slider"></span>
+            </label>
+        </header>
+        <section class="dashboard">
+            <div class="widget tasks">
+                <h2>Tasks</h2>
+                <select id="categoryFilter">
+                    <option value="all">All</option>
+                    <option value="Work">Work</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Shopping">Shopping</option>
+                </select>
+                <input type="text" id="taskInput" placeholder="Add a task...">
+                <input type="date" id="dueDate">
+                <button onclick="addTask()">Add</button>
+                <ul id="taskList"></ul>
+            </div>
+            <div class="widget progress">
+                <h2>Progress</h2>
+                <canvas id="progressChart"></canvas>
+            </div>
+            <div class="widget gamification">
+                <h2>Your Stats</h2>
+                <p>Points: <span id="points">0</span></p>
+                <p>Streak: <span id="streak">0</span> days</p>
+            </div>
+            <div class="widget share">
+                <h2>Share Progress</h2>
+                <button onclick="shareProgress()">Share on Twitter</button>
+            </div>
+        </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
